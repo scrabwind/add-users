@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
   import DefaultLayout from '@/layout/Default.vue'
   import TableComponent from '@/components/Table/TableComponent.vue'
   import SearchComponent from '@/components/Search/SearchComponent.vue'
@@ -27,6 +27,7 @@
   .main {
     padding: 24px 16px;
     display: flex;
+    flex-direction: column;
     background-color: $color-white;
   }
 
@@ -35,6 +36,7 @@
       display: flex;
       width: 100%;
       justify-content: space-between;
+      margin-bottom: 24px;
     }
   }
 </style>
