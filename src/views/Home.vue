@@ -1,24 +1,40 @@
 <script setup>
   import DefaultLayout from '@/layout/Default.vue'
-  import Table from '@/components/Table/Table.vue'
+  import TableComponent from '@/components/Table/TableComponent.vue'
+  import SearchComponent from '@/components/Search/SearchComponent.vue'
+  import AddUser from '@/components/AddUser/AddUser.vue'
 </script>
 
 <template>
   <DefaultLayout>
-    <h1 class="header">User list</h1>
-    <Table class="table" />
+    <header class="header">User list</header>
+    <main class="main">
+      <section class="section-search">
+        <SearchComponent />
+        <AddUser />
+      </section>
+      <TableComponent />
+    </main>
   </DefaultLayout>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
   .header {
     margin: 32px 0;
+    font-size: 32px;
   }
 
-  .table {
-    width: 100%;
-    height: 100%;
+  .main {
+    padding: 24px 16px;
+    display: flex;
+    background-color: $color-white;
+  }
 
-    /* float: left; */
+  .section {
+    &-search {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
   }
 </style>

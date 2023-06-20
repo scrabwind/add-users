@@ -1,13 +1,13 @@
 <template>
-  <main class="main">
+  <div class="layout">
     <slot />
-  </main>
+  </div>
 </template>
 
 <script setup></script>
 
 <style scoped lang="scss">
-  .main {
+  .layout {
     display: grid;
     width: 100%;
     grid-template-rows: 100px 1fr;
