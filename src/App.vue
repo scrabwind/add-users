@@ -1,27 +1,40 @@
-<script setup lang="ts">
-  import AdderComponent from '@components/AdderComponent/AdderComponent.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <AdderComponent />
+  <RouterView />
 </template>
 
 <style lang="scss">
-  @import 'https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap';
+  @use 'normalize.css/normalize.css' as *;
+  @import 'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap';
 
+  html,
   body,
-  html {
-    padding: 0;
-    margin: 0;
-    width: 100%;
+  #app {
     height: 100%;
+    width: 100%;
+  }
+
+  html,
+  body {
+    float: left;
+  }
+
+  #app {
+    margin: 0 auto;
+    max-width: 1600px;
+  }
+
+  body {
+    background-color: $color-light-grey;
   }
 
   * {
-    font-family: Poppins, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: $font-size;
     color: $color-grey;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
   }
 </style>
