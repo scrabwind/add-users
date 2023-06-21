@@ -34,6 +34,7 @@
   .body {
     display: grid;
     grid-row: 2 / -1;
+    grid-template-rows: repeat(8, 12.5%);
 
     :deep(tr:nth-child(odd)) {
       background: $color-grey;
@@ -43,7 +44,7 @@
   .avatar {
     border-radius: 50%;
     overflow: hidden;
-    margin: 8px;
+    margin-left: 8px;
   }
 
   .avatar-container {

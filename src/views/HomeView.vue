@@ -5,6 +5,25 @@
   import AddUser from '@/components/AddUser/AddUser.vue'
 
   import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
+  import type { User } from '@/common/types/request.types'
+  import { getUsersRepsonse } from '@/common/utils/request.utils'
+  import { ref, onBeforeMount } from 'vue'
+
+  const users = ref<User[]>([])
+  const pages = ref<number>(0)
+  const activePage = ref<number>(1)
+
+  const paginationClick = async (page = 1): Promise<void> => {
+    const response = await getUsersRepsonse(page)
+
+    users.value = response.data
+    pages.value = response.total_pages
+    activePage.value = page
+  }
+
+  onBeforeMount(async () => {
+    await paginationClick()
+  })
 </script>
 
 <template>
@@ -15,9 +34,13 @@
         <SearchComponent />
         <AddUser />
       </section>
-      <TableComponent />
+      <TableComponent :users="users" />
     </main>
-    <PaginationComponent />
+    <PaginationComponent
+      :pages="pages"
+      :active-page="activePage"
+      @pagination-click="paginationClick"
+    />
   </DefaultLayout>
 </template>
 
@@ -28,7 +51,6 @@
   }
 
   .main {
-    // margin: 32px 0;
     padding: 24px 16px;
     display: flex;
     flex-direction: column;

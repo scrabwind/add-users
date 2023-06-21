@@ -6,13 +6,9 @@
   import { getUsersRepsonse } from '@/common/utils/request.utils'
   import type { User } from '@/common/types/request.types'
 
-  const users = ref<User[]>([])
   const avatarSize = ref(48)
-  onBeforeMount(async () => {
-    const response = await getUsersRepsonse()
 
-    users.value = response.data
-  })
+  defineProps<{ users: User[] }>()
 </script>
 
 <template>

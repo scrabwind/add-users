@@ -1,32 +1,43 @@
 <script setup lang="ts">
   import DoubleArrow from '@/assets/svgs/double_arrow.svg'
 
-  withDefaults(defineProps<{ pages: number }>(), { pages: 10 })
+  withDefaults(defineProps<{ pages: number; activePage: number }>(), {
+    pages: 10,
+    activePage: 1
+  })
+
+  defineEmits<{ (e: 'paginationClick', pageNumber: number): void }>()
 </script>
 
 <template>
   <nav class="nav">
-    <div class="item item--first">
+    <button
+      class="item item--first"
+      @click="$emit('paginationClick', 1)"
+    >
       <inline-svg
         class="svg svg--left"
         :src="DoubleArrow"
       />
-    </div>
-
-    <div
+    </button>
+    <button
       v-for="page in pages"
       :key="page"
       class="item"
-      :class="{ 'item--active': page === 1 }"
+      :class="{ 'item--active': page === activePage }"
+      @click="$emit('paginationClick', page)"
     >
       {{ page }}
-    </div>
-    <div class="item item--last">
+    </button>
+    <button
+      class="item item--last"
+      @click="$emit('paginationClick', pages)"
+    >
       <inline-svg
         class="svg"
         :src="DoubleArrow"
       />
-    </div>
+    </button>
   </nav>
 </template>
 
@@ -51,6 +62,7 @@
     border: $border;
     border-left: none;
     font-weight: bold;
+    cursor: pointer;
 
     &--first {
       border-left: $border;
@@ -65,6 +77,7 @@
     &--active {
       background-color: $color-green;
       color: $color-white;
+      border: none;
     }
   }
 
