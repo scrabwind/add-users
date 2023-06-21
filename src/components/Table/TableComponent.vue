@@ -31,8 +31,7 @@
   :deep(tr) {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: max(80px, 10%) 1fr max(64px, 10%);
-    text-align: left;
+    grid-template-columns: max(120px, 10%) 1fr max(120px, 10%);
     justify-content: center;
     align-items: center;
     border-radius: 4px;

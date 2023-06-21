@@ -31,6 +31,7 @@
     align-items: center;
     padding: 32px 0 16px;
     border-top: 1px solid $color-grey;
+    text-align: left;
   }
 
   .actions {
