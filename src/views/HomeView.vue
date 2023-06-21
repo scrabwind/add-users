@@ -1,8 +1,6 @@
 <script setup lang="ts">
   import DefaultLayout from '@/layout/DefaultLayout.vue'
   import TableComponent from '@/components/Table/TableComponent.vue'
-  import SearchComponent from '@/components/Search/SearchComponent.vue'
-  import AddUser from '@/components/AddUser/AddUser.vue'
 
   import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
   import type { User } from '@/common/types/request.types'
@@ -30,10 +28,6 @@
   <DefaultLayout>
     <header class="header">User list</header>
     <main class="main">
-      <section class="section-search">
-        <SearchComponent />
-        <AddUser />
-      </section>
       <TableComponent :users="users" />
     </main>
     <PaginationComponent
@@ -57,12 +51,12 @@
     background-color: $color-white;
   }
 
-  .section {
-    &-search {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-  }
+  // .section {
+  //   &-search {
+  //     display: flex;
+  //     width: 100%;
+  //     justify-content: space-between;
+  //     margin-bottom: 24px;
+  //   }
+  // }
 </style>

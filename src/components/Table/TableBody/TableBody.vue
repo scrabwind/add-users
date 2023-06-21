@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import type { User } from '@/common/types/request.types'
+  import Delete from '@/assets/svgs/delete.svg'
+  import Edit from '@/assets/svgs/edit.svg'
 
   withDefaults(defineProps<{ users: User[]; avatarSize: number }>(), {
     avatarSize: 32
@@ -23,8 +25,18 @@
       </td>
       <td>{{ `${user.first_name} ${user.last_name}` }}</td>
       <td class="actions">
-        <div>🐸</div>
-        <div>💀</div>
+        <button class="button">
+          <inline-svg
+            class="svg"
+            :src="Edit"
+          />
+        </button>
+        <button class="button">
+          <inline-svg
+            class="svg"
+            :src="Delete"
+          />
+        </button>
       </td>
     </tr>
   </tbody>
@@ -54,6 +66,18 @@
   .actions {
     display: flex;
     align-items: center;
-    gap: 8px;
+  }
+
+  .button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+
+  .svg {
+    fill: $color-dark-grey;
+    width: 1.2rem;
   }
 </style>

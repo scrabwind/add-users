@@ -24,11 +24,10 @@
 <style scoped lang="scss">
   .table {
     display: grid;
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-rows: repeat(10, 1fr);
     width: 100%;
     flex-grow: 1;
-    border-top: 1px solid $color-grey;
-    padding-top: 24px;
+    padding-top: 8px;
   }
 
   :deep(tr) {
