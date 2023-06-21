@@ -13,9 +13,12 @@ export const getUser = async (id: number): Promise<User> => {
   return response.data
 }
 
-export const getUsersRepsonse = async (page = 1): Promise<GetUsersResponse> => {
+export const getUsersRepsonse = async (
+  page = 1,
+  perPage = 8
+): Promise<GetUsersResponse> => {
   const fetchResponse = await fetch(
-    `https://reqres.in/api/users?per_page=8&page=${page}`
+    `https://reqres.in/api/users?per_page=${perPage}&page=${page}`
   )
   const response: GetUsersResponse = await fetchResponse.json()
 

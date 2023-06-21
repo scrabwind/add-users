@@ -1,15 +1,21 @@
 <script setup lang="ts">
   import Plus from '@/assets/svgs/plus.svg'
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter()
 </script>
 
 <template>
-  <div class="container">
+  <button
+    class="container"
+    @click="router.push('/add-user')"
+  >
     <inline-svg
       :src="Plus"
       class="icon"
     />
-    <div class="text">Add User</div>
-  </div>
+    <span class="text">Add User</span>
+  </button>
 </template>
 
 <style scoped lang="scss">
@@ -22,6 +28,8 @@
     background-color: $color-green;
     padding: 15px;
     border-radius: 64px;
+    border-color: transparent;
+    cursor: pointer;
   }
 
   .icon {

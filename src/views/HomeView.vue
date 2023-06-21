@@ -50,13 +50,4 @@
     flex-direction: column;
     background-color: $color-white;
   }
-
-  // .section {
-  //   &-search {
-  //     display: flex;
-  //     width: 100%;
-  //     justify-content: space-between;
-  //     margin-bottom: 24px;
-  //   }
-  // }
 </style>

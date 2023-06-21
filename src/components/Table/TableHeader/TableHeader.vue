@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import SearchComponent from '@/components/Search/SearchComponent.vue'
-  import AddUser from '@/components/AddUser/AddUser.vue'
+  import AddUser from '@/components/AddUserButton/AddUserButton.vue'
 
   const tableHeaders = ['', 'Full Name', 'Action']
 </script>
