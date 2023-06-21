@@ -1,12 +1,28 @@
 <script setup lang="ts">
+  import { computed, onBeforeMount, ref } from 'vue'
   import TableHeader from '@/components/Table/TableHeader/TableHeader.vue'
   import TableBody from '@/components/Table/TableBody/TableBody.vue'
+
+  import { getUsersRepsonse } from '@/common/utils/request.utils'
+  import type { User } from '@/common/types/request.types'
+
+  const users = ref<User[]>([])
+  const avatarSize = ref(48)
+  onBeforeMount(async () => {
+    const response = await getUsersRepsonse()
+
+    users.value = response.data
+  })
 </script>
 
 <template>
   <table class="table">
     <TableHeader />
-    <TableBody class="body" />
+    <TableBody
+      :users="users"
+      :avatar-size="avatarSize"
+      class="body"
+    />
   </table>
 </template>
 
@@ -23,12 +39,19 @@
   .body {
     display: grid;
     grid-row: 2 / -1;
+
+    :deep(tr:nth-child(even)) {
+      background: $color-light-grey;
+    }
   }
 
   :deep(tr) {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: max(80px, 10%) 1fr max(64px, 10%);
     text-align: left;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
   }
 </style>
