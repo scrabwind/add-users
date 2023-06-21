@@ -25,13 +25,19 @@
       </td>
       <td>{{ `${user.first_name} ${user.last_name}` }}</td>
       <td class="actions">
-        <button class="button">
+        <button
+          class="button"
+          @click="$router.push(`/${user.id}`)"
+        >
           <inline-svg
             class="svg"
             :src="Edit"
           />
         </button>
-        <button class="button">
+        <button
+          class="button"
+          @click="$router.push(`/${user.id}`)"
+        >
           <inline-svg
             class="svg"
             :src="Delete"

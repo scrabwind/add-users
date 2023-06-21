@@ -1,26 +1,54 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import { useRouter } from 'vue-router'
+  import { onBeforeMount, ref } from 'vue'
+  import { useRoute, useRouter } from 'vue-router'
   import DefaultLayout from '@/layout/DefaultLayout.vue'
   import InputComponent from '@/components/Input/InputComponent.vue'
   import SubmitComponent from '@/components/Submit/SubmitComponent.vue'
-  import { createUser } from '@/common/utils/request.utils'
+  import { createUser, getUser, deleteUser } from '@/common/utils/request.utils'
+  import type { User } from '@/common/types/request.types'
+  import DeleteButton from '@/components/DeleteButton/DeleteButton.vue'
 
   const router = useRouter()
-  const firstName = ref('')
-  const lastName = ref('')
-  const avatar = ref('')
+  const route = useRoute()
+  const isActiveUser = ref(false)
+
+  const userData = ref<User>({
+    avatar: '',
+    email: '',
+    first_name: '',
+    id: '',
+    last_name: ''
+  })
   const wasSubmitted = ref(false)
+
+  onBeforeMount(async () => {
+    if (!route.params.id) return
+    if (Array.isArray(route.params.id)) return
+
+    isActiveUser.value = true
+    const user = await getUser(route.params.id)
+    userData.value = user
+  })
 
   const handleSubmit = async () => {
     wasSubmitted.value = true
-    const data = { firstName, lastName, avatar }
 
-    if (!firstName.value || !lastName.value || !avatar.value) return
+    if (
+      !userData.value?.first_name ||
+      !userData.value?.last_name ||
+      !userData.value?.avatar
+    )
+      return
 
-    await createUser(data)
+    await createUser(userData.value)
 
     router.push('/')
+  }
+
+  const handleDelete = async () => {
+    const status = await deleteUser(userData.value.id)
+
+    if (status === 201) router.push('/')
   }
 </script>
 
@@ -40,26 +68,33 @@
         <div class="input__wrapper">
           <InputComponent
             id="first"
-            v-model="firstName"
+            v-model="userData.first_name"
             label="First Name"
             class="input--xd"
-            :class="{ 'input--invalid': !firstName && wasSubmitted }"
+            :class="{ 'input--invalid': !userData.first_name && wasSubmitted }"
           />
           <InputComponent
             id="last"
-            v-model="lastName"
+            v-model="userData.last_name"
             label="Last Name"
             class="input--xd"
-            :class="{ 'input--invalid': !lastName && wasSubmitted }"
+            :class="{ 'input--invalid': !userData.last_name && wasSubmitted }"
           />
         </div>
-        <div>
+        <div class="buttons--container">
           <SubmitComponent class="submit" />
+          <DeleteButton
+            v-if="isActiveUser"
+            @click="handleDelete"
+          />
         </div>
       </main>
       <aside class="aside">
         <img
-          src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
+          :src="
+            userData.avatar ||
+            'https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png'
+          "
           alt="peepoStare"
           class="img"
           width="140"
@@ -67,10 +102,10 @@
         />
         <InputComponent
           id="avatar"
-          v-model="avatar"
+          v-model="userData.avatar"
           placeholder="📷Change Photo"
           class="avatar"
-          :class="{ 'input--invalid': !avatar && wasSubmitted }"
+          :class="{ 'input--invalid': !userData.avatar && wasSubmitted }"
         />
       </aside>
     </form>
@@ -119,6 +154,7 @@
     height: 400px;
     justify-content: space-between;
     border-radius: 8px;
+    box-shadow: 0 0 20px -15px $color-font;
   }
 
   .form {
@@ -137,6 +173,7 @@
     background-color: $color-white;
     padding: 24px 20px;
     border-radius: 8px;
+    box-shadow: 0 0 20px -15px $color-font;
   }
 
   .img {
@@ -155,5 +192,13 @@
     }
 
     width: 100%;
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  .buttons--container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>

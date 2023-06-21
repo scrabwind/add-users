@@ -49,5 +49,6 @@
     display: flex;
     flex-direction: column;
     background-color: $color-white;
+    box-shadow: 0 0 20px -15px $color-font;
   }
 </style>

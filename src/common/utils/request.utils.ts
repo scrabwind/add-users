@@ -6,7 +6,7 @@ import type {
   User
 } from '@/common/types/request.types'
 
-export const getUser = async (id: number): Promise<User> => {
+export const getUser = async (id: string): Promise<User> => {
   const fetchResponse = await fetch(`https://reqres.in/api/users/${id}`)
   const response: GetUserResponse = await fetchResponse.json()
 
@@ -41,7 +41,7 @@ export const createUser = async (
   return response
 }
 
-export const deleteUser = async (id: number): Promise<number> => {
+export const deleteUser = async (id: string): Promise<number> => {
   const fetchResponse = await fetch(`https://reqres.in/api/users/${id}`)
   const response = fetchResponse.status
 

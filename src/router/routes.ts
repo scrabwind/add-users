@@ -9,6 +9,10 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/add-user',
     name: 'add-user',
-    component: () => import('@/views/NewUser.vue')
+    component: () => import('@/views/SingleUser.vue')
+  },
+  {
+    path: '/:id',
+    component: () => import('@/views/SingleUser.vue')
   }
 ]

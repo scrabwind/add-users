@@ -5,7 +5,7 @@ export type ResponseSupport = {
 
 export type GetUserResponse = {
   data: {
-    id: number
+    id: string
     email: string
     first_name: string
     last_name: string
