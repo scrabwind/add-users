@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <thead>
+  <thead class="head">
     <tr class="actions">
       <SearchComponent class="search" />
       <AddUser class="add" />
@@ -23,6 +23,10 @@
 </template>
 
 <style lang="scss" scoped>
+  .head {
+    grid-row: 1 / 2;
+  }
+
   .headers {
     align-items: center;
     padding: 32px 0 16px;

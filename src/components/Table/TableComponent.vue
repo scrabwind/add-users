@@ -1,9 +1,7 @@
 <script setup lang="ts">
-  import { onBeforeMount, ref } from 'vue'
+  import { ref } from 'vue'
   import TableHeader from '@/components/Table/TableHeader/TableHeader.vue'
   import TableBody from '@/components/Table/TableBody/TableBody.vue'
-
-  import { getUsersRepsonse } from '@/common/utils/request.utils'
   import type { User } from '@/common/types/request.types'
 
   const avatarSize = ref(48)
@@ -24,7 +22,7 @@
 <style scoped lang="scss">
   .table {
     display: grid;
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-rows: fit-content(0) repeat(9, 1fr);
     width: 100%;
     flex-grow: 1;
     padding-top: 8px;
