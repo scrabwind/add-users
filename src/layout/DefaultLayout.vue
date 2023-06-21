@@ -14,7 +14,7 @@
     max-width: 1600px;
 
     // margin: 0 auto;
-    padding: 64px;
+    padding: 0 64px;
     height: 100%;
 
     // float: left;

@@ -1,8 +1,10 @@
 <script setup lang="ts">
-  import DefaultLayout from '@/layout/Default.vue'
+  import DefaultLayout from '@/layout/DefaultLayout.vue'
   import TableComponent from '@/components/Table/TableComponent.vue'
   import SearchComponent from '@/components/Search/SearchComponent.vue'
   import AddUser from '@/components/AddUser/AddUser.vue'
+
+  import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
 </script>
 
 <template>
@@ -15,6 +17,7 @@
       </section>
       <TableComponent />
     </main>
+    <PaginationComponent />
   </DefaultLayout>
 </template>
 
@@ -25,6 +28,7 @@
   }
 
   .main {
+    // margin: 32px 0;
     padding: 24px 16px;
     display: flex;
     flex-direction: column;

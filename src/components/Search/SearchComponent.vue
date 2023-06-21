@@ -9,11 +9,11 @@
 
 <style scoped lang="scss">
   .search {
-    color: $color-grey;
+    color: $color-font;
   }
 
   .container {
-    background-color: $color-light-grey;
+    background-color: $color-grey;
     display: flex;
     justify-content: space-between;
     align-items: center;

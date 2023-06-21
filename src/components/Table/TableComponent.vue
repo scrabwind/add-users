@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed, onBeforeMount, ref } from 'vue'
+  import { onBeforeMount, ref } from 'vue'
   import TableHeader from '@/components/Table/TableHeader/TableHeader.vue'
   import TableBody from '@/components/Table/TableBody/TableBody.vue'
 
@@ -21,7 +21,6 @@
     <TableBody
       :users="users"
       :avatar-size="avatarSize"
-      class="body"
     />
   </table>
 </template>
@@ -32,17 +31,8 @@
     grid-template-rows: repeat(9, 1fr);
     width: 100%;
     flex-grow: 1;
-    border-top: 1px solid $color-light-grey;
+    border-top: 1px solid $color-grey;
     padding-top: 24px;
-  }
-
-  .body {
-    display: grid;
-    grid-row: 2 / -1;
-
-    :deep(tr:nth-child(even)) {
-      background: $color-light-grey;
-    }
   }
 
   :deep(tr) {

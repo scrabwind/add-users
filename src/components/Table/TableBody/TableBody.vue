@@ -7,7 +7,7 @@
 </script>
 
 <template>
-  <tbody>
+  <tbody class="body">
     <tr
       v-for="user in users"
       :key="user.id"
@@ -31,6 +31,15 @@
 </template>
 
 <style scoped lang="scss">
+  .body {
+    display: grid;
+    grid-row: 2 / -1;
+
+    :deep(tr:nth-child(odd)) {
+      background: $color-grey;
+    }
+  }
+
   .avatar {
     border-radius: 50%;
     overflow: hidden;

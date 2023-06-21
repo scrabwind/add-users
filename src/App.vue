@@ -26,13 +26,13 @@
   }
 
   body {
-    background-color: $color-light-grey;
+    background-color: $color-grey;
   }
 
   * {
     font-family: 'Open Sans', sans-serif;
     font-size: $font-size;
-    color: $color-grey;
+    color: $color-font;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
