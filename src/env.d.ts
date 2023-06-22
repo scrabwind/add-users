@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 
-// interface ImportMetaEnv {}
+interface ImportMetaEnv {
+  VITE_API_URL: string
+}
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
@@ -9,6 +11,6 @@ declare module '*.vue' {
   export default component
 }
 
-// interface ImportMeta {
-//   readonly env: ImportMetaEnv
-// }
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}

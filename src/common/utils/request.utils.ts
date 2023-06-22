@@ -7,7 +7,9 @@ import type {
 } from '@/common/types/request.types'
 
 export const getUser = async (id: string): Promise<User> => {
-  const fetchResponse = await fetch(`https://reqres.in/api/users/${id}`)
+  const fetchResponse = await fetch(
+    `${import.meta.env.VITE_API_URL}/users/${id}`
+  )
   const response: GetUserResponse = await fetchResponse.json()
 
   return response.data
@@ -18,7 +20,7 @@ export const getUsersRepsonse = async (
   perPage = 8
 ): Promise<GetUsersResponse> => {
   const fetchResponse = await fetch(
-    `https://reqres.in/api/users?per_page=${perPage}&page=${page}`
+    `${import.meta.env.VITE_API_URL}/users?per_page=${perPage}&page=${page}`
   )
   const response: GetUsersResponse = await fetchResponse.json()
 
@@ -28,7 +30,7 @@ export const getUsersRepsonse = async (
 export const createUser = async (
   data: CreateUserRequest
 ): Promise<CreateUserResponse> => {
-  const fetchResponse = await fetch('https://reqres.in/api/users', {
+  const fetchResponse = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
     body: JSON.stringify(data),
     method: 'post',
     headers: {
@@ -42,7 +44,9 @@ export const createUser = async (
 }
 
 export const deleteUser = async (id: string): Promise<number> => {
-  const fetchResponse = await fetch(`https://reqres.in/api/users/${id}`)
+  const fetchResponse = await fetch(
+    `${import.meta.env.VITE_API_URL}/users/${id}`
+  )
   const response = fetchResponse.status
 
   return response

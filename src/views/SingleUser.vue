@@ -58,7 +58,7 @@
       class="user__header"
       style="font-weight: bold"
     >
-      Add User
+      {{ isActiveUser ? 'Edit User' : 'Add User' }}
     </header>
     <form
       class="user__form"
@@ -95,10 +95,7 @@
       </main>
       <aside class="user__aside">
         <img
-          :src="
-            userData.avatar ||
-            'https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png'
-          "
+          :src="userData.avatar || '@/assets/img/avatar.png'"
           alt="avatar"
           class="user__avatar-img"
           width="140"
@@ -148,7 +145,7 @@
 
       &--invalid {
         :deep(.input) {
-          border: 1px solid red !important;
+          border: 1px solid $color-red !important;
         }
       }
     }
@@ -159,6 +156,7 @@
       color: $color-white;
       border-radius: 4px;
       padding: 16px 24px;
+      cursor: pointer;
     }
 
     &__main {
@@ -258,145 +256,4 @@
       }
     }
   }
-
-  // .header {
-  //   margin: 32px 0;
-  //   font-size: 32px;
-
-  //   @media only screen and (width <= $breakpoint--m) {
-  //     text-align: center;
-  //   }
-
-  //   @media only screen and (width <= $breakpoint--s) {
-  //     margin-bottom: 0;
-  //   }
-  // }
-
-  // .input {
-  //   &__wrapper {
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //     gap: 32px;
-
-  //     @media only screen and (width <= $breakpoint--m) {
-  //       flex-direction: column;
-  //       gap: 24px;
-  //     }
-  //   }
-
-  //   &--xd {
-  //     width: 100%;
-  //   }
-
-  //   &--invalid {
-  //     :deep(.input) {
-  //       border: 1px solid red !important;
-  //     }
-  //   }
-  // }
-
-  // .submit {
-  //   border: none;
-  //   background-color: $color-green;
-  //   color: $color-white;
-  //   border-radius: 4px;
-  //   padding: 16px 24px;
-  // }
-
-  // .main {
-  //   width: 70%;
-  //   display: flex;
-  //   flex-direction: column;
-  //   background-color: $color-white;
-  //   padding: 24px;
-  //   height: 400px;
-  //   justify-content: space-between;
-  //   border-radius: 8px;
-  //   box-shadow: 0 0 20px -15px $color-font;
-
-  //   @media only screen and (width <= $breakpoint--m) {
-  //     height: max-content;
-  //   }
-
-  //   @media only screen and (width <= $breakpoint--s) {
-  //     width: 100%;
-  //   }
-  // }
-
-  // .form {
-  //   width: 100%;
-  //   display: flex;
-  //   gap: 64px;
-
-  //   @media only screen and (width <= $breakpoint--m) {
-  //     flex-direction: column-reverse;
-  //     justify-content: flex-end;
-  //     align-items: center;
-  //   }
-  // }
-
-  // .aside {
-  //   width: 30%;
-  //   height: 400px;
-  //   display: flex;
-  //   align-items: center;
-  //   flex-direction: column;
-  //   justify-content: end;
-  //   background-color: $color-white;
-  //   padding: 24px 20px;
-  //   border-radius: 8px;
-  //   box-shadow: 0 0 20px -15px $color-font;
-
-  //   @media only screen and (width <= $breakpoint--m) {
-  //     height: 240px;
-  //     width: 70%;
-  //   }
-
-  //   @media only screen and (width <= $breakpoint--s) {
-  //     height: 240px;
-  //     width: 100%;
-  //   }
-  // }
-
-  // .img {
-  //   overflow: hidden;
-  //   border-radius: 50%;
-  //   background-color: $color-grey;
-  //   border: 3px solid $color-light-grey;
-  //   outline: 1px solid $color-grey;
-  //   margin-bottom: 100px;
-
-  //   @media only screen and (width <= $breakpoint--m) {
-  //     width: 120px;
-  //     height: 120px;
-  //     margin-bottom: 20px;
-  //   }
-  // }
-
-  // .avatar {
-  //   :deep(.input) {
-  //     border: 1px solid $color-font;
-  //     text-align: center;
-  //   }
-
-  //   width: 100%;
-  // }
-
-  // /* stylelint-disable-next-line selector-class-pattern */
-  // .buttons--container {
-  //   width: 100%;
-  //   display: flex;
-  //   justify-content: space-between;
-  //   align-items: center;
-
-  //   @media only screen and (width <= $breakpoint--m) {
-  //     margin-top: 64px;
-  //   }
-
-  //   @media only screen and (width <= $breakpoint--s) {
-  //     flex-direction: column;
-  //     gap: 24px;
-  //   }
-  // }
 </style>

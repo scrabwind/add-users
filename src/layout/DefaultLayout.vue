@@ -12,15 +12,11 @@
     width: 100%;
     grid-template-rows: 100px 1fr;
     max-width: 1600px;
-
-    // margin: 0 auto;
     padding: 0 64px;
     height: 100%;
 
     @media only screen and (width <= $breakpoint--xs) {
       padding: 0 32px;
     }
-
-    // float: left;
   }
 </style>

@@ -16,11 +16,7 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@helpers/*": ["src/helpers/*"],
-      "@assets/*": ["src/assets/*"],
-      "@common/*": ["src/common/*"]
+      "@/*": ["src/*"]
     },
     "types": ["node"]
   },

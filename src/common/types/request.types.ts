@@ -25,7 +25,6 @@ export type GetUsersResponse = {
   support: ResponseSupport
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type CreateUserRequest = Record<never, unknown>
 
 export type CreateUserResponse =

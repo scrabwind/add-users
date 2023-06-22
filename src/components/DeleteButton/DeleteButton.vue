@@ -9,7 +9,7 @@
     &__button {
       width: 144px;
       border: none;
-      background-color: red;
+      background-color: $color-red;
       color: $color-white;
       border-radius: 4px;
       padding: 16px 24px;
