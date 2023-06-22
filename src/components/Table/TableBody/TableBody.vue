@@ -13,6 +13,7 @@
     <tr
       v-for="user in users"
       :key="user.id"
+      class="table-body__row"
     >
       <td class="table-body__avatar-container">
         <img
@@ -60,6 +61,15 @@
       }
     }
 
+    &__row {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: max(80px, 10%) 1fr max(80px, 10%);
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+    }
+
     &__avatar {
       border-radius: 50%;
       overflow: hidden;
@@ -73,6 +83,10 @@
     &__actions {
       display: flex;
       align-items: center;
+
+      @media only screen and (width <= $breakpoint2) {
+        justify-content: flex-end;
+      }
     }
 
     &__button {

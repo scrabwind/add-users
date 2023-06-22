@@ -6,8 +6,9 @@
   <thead class="table-head">
     <tr class="table-head__headers">
       <th
-        v-for="header in tableHeaders"
+        v-for="(header, i) in tableHeaders"
         :key="header"
+        :class="{ 'table-head__header--last': tableHeaders.length === i + 1 }"
       >
         {{ header }}
       </th>
@@ -20,10 +21,24 @@
     grid-row: 1 / 2;
 
     &__headers {
-      align-items: center;
       padding: 32px 0 16px;
       border-top: 1px solid $color-grey;
       text-align: left;
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: max(80px, 10%) 1fr max(80px, 10%);
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+    }
+
+    &__header {
+      &--last {
+        @media only screen and (width <= $breakpoint2) {
+          text-align: right;
+          margin-right: 8px;
+        }
+      }
     }
   }
 </style>

@@ -27,29 +27,4 @@
     flex-grow: 1;
     padding-top: 8px;
   }
-
-  :deep(tr) {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: max(80px, 10%) 1fr max(80px, 10%);
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-  }
-
-  /* stylelint-disable-next-line selector-class-pattern */
-  :deep(.table-head__headers th:nth-child(3)) {
-    @media only screen and (width <= $breakpoint2) {
-      // display: flex;
-      text-align: right;
-      margin-right: 8px;
-    }
-  }
-
-  /* stylelint-disable-next-line selector-class-pattern */
-  :deep(.table-body__actions) {
-    @media only screen and (width <= $breakpoint2) {
-      justify-content: flex-end;
-    }
-  }
 </style>
