@@ -31,9 +31,23 @@
   :deep(tr) {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: max(120px, 10%) 1fr max(120px, 10%);
+    grid-template-columns: max(80px, 10%) 1fr max(80px, 10%);
     justify-content: center;
     align-items: center;
     border-radius: 4px;
+  }
+
+  :deep(.headers th:nth-child(3)) {
+    @media only screen and (width <= $breakpoint2) {
+      // display: flex;
+      text-align: right;
+      margin-right: 8px;
+    }
+  }
+
+  :deep(.actions) {
+    @media only screen and (width <= $breakpoint2) {
+      justify-content: flex-end;
+    }
   }
 </style>

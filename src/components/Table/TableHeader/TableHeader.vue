@@ -7,10 +7,6 @@
 
 <template>
   <thead class="head">
-    <tr class="actions">
-      <SearchComponent class="search" />
-      <AddUser class="add" />
-    </tr>
     <tr class="headers">
       <th
         v-for="header in tableHeaders"

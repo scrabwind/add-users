@@ -48,5 +48,12 @@
     align-items: center;
     width: max(220px, 25%);
     border-radius: 8px;
+    margin-left: 0;
+
+    @media only screen and (width <= $breakpoint2) {
+      width: 100%;
+      margin-left: 12px;
+      margin-right: 0;
+    }
   }
 </style>
