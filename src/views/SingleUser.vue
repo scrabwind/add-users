@@ -116,6 +116,14 @@
   .header {
     margin: 32px 0;
     font-size: 32px;
+
+    @media only screen and (width <= $breakpoint) {
+      text-align: center;
+    }
+
+    @media only screen and (width <= $breakpoint2) {
+      margin-bottom: 0;
+    }
   }
 
   .input {
@@ -124,6 +132,11 @@
       justify-content: center;
       align-items: center;
       gap: 32px;
+
+      @media only screen and (width <= $breakpoint) {
+        flex-direction: column;
+        gap: 24px;
+      }
     }
 
     &--xd {
@@ -155,12 +168,26 @@
     justify-content: space-between;
     border-radius: 8px;
     box-shadow: 0 0 20px -15px $color-font;
+
+    @media only screen and (width <= $breakpoint) {
+      height: max-content;
+    }
+
+    @media only screen and (width <= $breakpoint2) {
+      width: 100%;
+    }
   }
 
   .form {
     width: 100%;
     display: flex;
     gap: 64px;
+
+    @media only screen and (width <= $breakpoint) {
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+      align-items: center;
+    }
   }
 
   .aside {
@@ -174,6 +201,16 @@
     padding: 24px 20px;
     border-radius: 8px;
     box-shadow: 0 0 20px -15px $color-font;
+
+    @media only screen and (width <= $breakpoint) {
+      height: 240px;
+      width: 70%;
+    }
+
+    @media only screen and (width <= $breakpoint2) {
+      height: 240px;
+      width: 100%;
+    }
   }
 
   .img {
@@ -183,6 +220,12 @@
     border: 3px solid $color-light-grey;
     outline: 1px solid $color-grey;
     margin-bottom: 100px;
+
+    @media only screen and (width <= $breakpoint) {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
   }
 
   .avatar {
@@ -200,5 +243,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (width <= $breakpoint) {
+      margin-top: 64px;
+    }
+
+    @media only screen and (width <= $breakpoint2) {
+      flex-direction: column;
+      gap: 24px;
+    }
   }
 </style>

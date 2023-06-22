@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --host",
     "lint": "eslint src/**/* --ext .ts,.vue --quiet",
     "lint:style": "stylelint **/*.{scss,vue} --quiet",
     "prettier": "prettier --write --ignore-unknown src/**",

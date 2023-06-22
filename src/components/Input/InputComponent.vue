@@ -48,5 +48,6 @@
     border: 1px solid $color-light-grey;
     background-color: $color-white;
     padding: 8px 16px;
+    height: 32px;
   }
 </style>

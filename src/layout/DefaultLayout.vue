@@ -17,6 +17,10 @@
     padding: 0 64px;
     height: 100%;
 
+    @media only screen and (width <= $breakpoint3) {
+      padding: 0 32px;
+    }
+
     // float: left;
   }
 </style>
