@@ -122,11 +122,11 @@
       margin: 32px 0;
       font-size: 32px;
 
-      @media only screen and (width <= $breakpoint) {
+      @media only screen and (width <= $breakpoint--m) {
         text-align: center;
       }
 
-      @media only screen and (width <= $breakpoint2) {
+      @media only screen and (width <= $breakpoint--s) {
         margin-bottom: 0;
       }
     }
@@ -140,7 +140,7 @@
         align-items: center;
         gap: 32px;
 
-        @media only screen and (width <= $breakpoint) {
+        @media only screen and (width <= $breakpoint--m) {
           flex-direction: column;
           gap: 24px;
         }
@@ -172,11 +172,11 @@
       border-radius: 8px;
       box-shadow: 0 0 20px -15px $color-font;
 
-      @media only screen and (width <= $breakpoint) {
+      @media only screen and (width <= $breakpoint--m) {
         height: max-content;
       }
 
-      @media only screen and (width <= $breakpoint2) {
+      @media only screen and (width <= $breakpoint--s) {
         width: 100%;
       }
     }
@@ -186,7 +186,7 @@
       display: flex;
       gap: 64px;
 
-      @media only screen and (width <= $breakpoint) {
+      @media only screen and (width <= $breakpoint--m) {
         flex-direction: column-reverse;
         justify-content: flex-end;
         align-items: center;
@@ -205,12 +205,12 @@
       border-radius: 8px;
       box-shadow: 0 0 20px -15px $color-font;
 
-      @media only screen and (width <= $breakpoint) {
+      @media only screen and (width <= $breakpoint--m) {
         height: 240px;
         width: 70%;
       }
 
-      @media only screen and (width <= $breakpoint2) {
+      @media only screen and (width <= $breakpoint--s) {
         height: 240px;
         width: 100%;
       }
@@ -225,7 +225,7 @@
         outline: 1px solid $color-grey;
         margin-bottom: 100px;
 
-        @media only screen and (width <= $breakpoint) {
+        @media only screen and (width <= $breakpoint--m) {
           width: 120px;
           height: 120px;
           margin-bottom: 20px;
@@ -248,11 +248,11 @@
       justify-content: space-between;
       align-items: center;
 
-      @media only screen and (width <= $breakpoint) {
+      @media only screen and (width <= $breakpoint--m) {
         margin-top: 64px;
       }
 
-      @media only screen and (width <= $breakpoint2) {
+      @media only screen and (width <= $breakpoint--s) {
         flex-direction: column;
         gap: 24px;
       }
@@ -263,11 +263,11 @@
   //   margin: 32px 0;
   //   font-size: 32px;
 
-  //   @media only screen and (width <= $breakpoint) {
+  //   @media only screen and (width <= $breakpoint--m) {
   //     text-align: center;
   //   }
 
-  //   @media only screen and (width <= $breakpoint2) {
+  //   @media only screen and (width <= $breakpoint--s) {
   //     margin-bottom: 0;
   //   }
   // }
@@ -279,7 +279,7 @@
   //     align-items: center;
   //     gap: 32px;
 
-  //     @media only screen and (width <= $breakpoint) {
+  //     @media only screen and (width <= $breakpoint--m) {
   //       flex-direction: column;
   //       gap: 24px;
   //     }
@@ -315,11 +315,11 @@
   //   border-radius: 8px;
   //   box-shadow: 0 0 20px -15px $color-font;
 
-  //   @media only screen and (width <= $breakpoint) {
+  //   @media only screen and (width <= $breakpoint--m) {
   //     height: max-content;
   //   }
 
-  //   @media only screen and (width <= $breakpoint2) {
+  //   @media only screen and (width <= $breakpoint--s) {
   //     width: 100%;
   //   }
   // }
@@ -329,7 +329,7 @@
   //   display: flex;
   //   gap: 64px;
 
-  //   @media only screen and (width <= $breakpoint) {
+  //   @media only screen and (width <= $breakpoint--m) {
   //     flex-direction: column-reverse;
   //     justify-content: flex-end;
   //     align-items: center;
@@ -348,12 +348,12 @@
   //   border-radius: 8px;
   //   box-shadow: 0 0 20px -15px $color-font;
 
-  //   @media only screen and (width <= $breakpoint) {
+  //   @media only screen and (width <= $breakpoint--m) {
   //     height: 240px;
   //     width: 70%;
   //   }
 
-  //   @media only screen and (width <= $breakpoint2) {
+  //   @media only screen and (width <= $breakpoint--s) {
   //     height: 240px;
   //     width: 100%;
   //   }
@@ -367,7 +367,7 @@
   //   outline: 1px solid $color-grey;
   //   margin-bottom: 100px;
 
-  //   @media only screen and (width <= $breakpoint) {
+  //   @media only screen and (width <= $breakpoint--m) {
   //     width: 120px;
   //     height: 120px;
   //     margin-bottom: 20px;
@@ -390,11 +390,11 @@
   //   justify-content: space-between;
   //   align-items: center;
 
-  //   @media only screen and (width <= $breakpoint) {
+  //   @media only screen and (width <= $breakpoint--m) {
   //     margin-top: 64px;
   //   }
 
-  //   @media only screen and (width <= $breakpoint2) {
+  //   @media only screen and (width <= $breakpoint--s) {
   //     flex-direction: column;
   //     gap: 24px;
   //   }

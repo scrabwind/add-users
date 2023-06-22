@@ -35,7 +35,7 @@
       border-radius: 8px;
       margin-left: 0;
 
-      @media only screen and (width <= $breakpoint2) {
+      @media only screen and (width <= $breakpoint--s) {
         width: 100%;
         margin-left: 12px;
         margin-right: 0;

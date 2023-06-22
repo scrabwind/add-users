@@ -9,6 +9,12 @@
       "rules": {
         "value-keyword-case": null
       }
+    },
+    {
+      "files": ["*.vue", "*.scss"],
+      "rules": {
+        "scss/dollar-variable-pattern": null
+      }
     }
   ]
 }

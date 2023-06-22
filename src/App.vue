@@ -6,7 +6,7 @@
 
 <style lang="scss">
   @use 'normalize.css/normalize.css' as *;
-  @import 'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap';
+  @import 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap';
 
   html,
   body,

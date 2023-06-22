@@ -15,7 +15,7 @@
       padding: 16px 24px;
       cursor: pointer;
 
-      @media only screen and (width <= $breakpoint2) {
+      @media only screen and (width <= $breakpoint--s) {
         width: 60%;
         min-width: 144px;
       }

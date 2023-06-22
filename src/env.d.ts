@@ -1,9 +1,6 @@
 /// <reference types="vite/client" />
 
-interface ImportMetaEnv {
-  readonly VITE_EXAMPLE_ENV: number
-  readonly VITE_FALSE: boolean
-}
+// interface ImportMetaEnv {}
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
@@ -12,6 +9,6 @@ declare module '*.vue' {
   export default component
 }
 
-interface ImportMeta {
-  readonly env: ImportMetaEnv
-}
+// interface ImportMeta {
+//   readonly env: ImportMetaEnv
+// }

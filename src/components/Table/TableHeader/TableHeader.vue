@@ -34,7 +34,7 @@
 
     &__header {
       &--last {
-        @media only screen and (width <= $breakpoint2) {
+        @media only screen and (width <= $breakpoint--s) {
           text-align: right;
           margin-right: 8px;
         }

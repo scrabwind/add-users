@@ -17,7 +17,7 @@
     padding: 0 64px;
     height: 100%;
 
-    @media only screen and (width <= $breakpoint3) {
+    @media only screen and (width <= $breakpoint--xs) {
       padding: 0 32px;
     }
 

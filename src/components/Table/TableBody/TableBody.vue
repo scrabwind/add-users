@@ -84,7 +84,7 @@
       display: flex;
       align-items: center;
 
-      @media only screen and (width <= $breakpoint2) {
+      @media only screen and (width <= $breakpoint--s) {
         justify-content: flex-end;
       }
     }

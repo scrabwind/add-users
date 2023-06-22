@@ -64,7 +64,7 @@
       align-items: center;
       justify-content: space-between;
 
-      @media only screen and (width <= $breakpoint2) {
+      @media only screen and (width <= $breakpoint--s) {
         flex-direction: column;
         align-items: flex-end;
         gap: 8px;
