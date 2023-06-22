@@ -1,13 +1,10 @@
 <script setup lang="ts">
-  import SearchComponent from '@/components/Search/SearchComponent.vue'
-  import AddUser from '@/components/AddUserButton/AddUserButton.vue'
-
   const tableHeaders = ['', 'Full Name', 'Action']
 </script>
 
 <template>
-  <thead class="head">
-    <tr class="headers">
+  <thead class="table-head">
+    <tr class="table-head__headers">
       <th
         v-for="header in tableHeaders"
         :key="header"
@@ -19,26 +16,14 @@
 </template>
 
 <style lang="scss" scoped>
-  .head {
+  .table-head {
     grid-row: 1 / 2;
-  }
 
-  .headers {
-    align-items: center;
-    padding: 32px 0 16px;
-    border-top: 1px solid $color-grey;
-    text-align: left;
-  }
-
-  .actions {
-    margin-bottom: 32px;
-  }
-
-  .search {
-    grid-column: 1 / 3;
-  }
-
-  .add {
-    grid-column: 3 / -1;
+    &__headers {
+      align-items: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid $color-grey;
+      text-align: left;
+    }
   }
 </style>

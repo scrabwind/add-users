@@ -37,7 +37,8 @@
     border-radius: 4px;
   }
 
-  :deep(.headers th:nth-child(3)) {
+  /* stylelint-disable-next-line selector-class-pattern */
+  :deep(.table-head__headers th:nth-child(3)) {
     @media only screen and (width <= $breakpoint2) {
       // display: flex;
       text-align: right;
@@ -45,7 +46,8 @@
     }
   }
 
-  :deep(.actions) {
+  /* stylelint-disable-next-line selector-class-pattern */
+  :deep(.table-body__actions) {
     @media only screen and (width <= $breakpoint2) {
       justify-content: flex-end;
     }

@@ -55,48 +55,52 @@
 <template>
   <DefaultLayout>
     <header
-      class="header"
+      class="user__header"
       style="font-weight: bold"
     >
       Add User
     </header>
     <form
-      class="form"
+      class="user__form"
       @submit.prevent="handleSubmit"
     >
-      <main class="main">
-        <div class="input__wrapper">
+      <main class="user__main">
+        <div class="user__input-wrapper">
           <InputComponent
             id="first"
             v-model="userData.first_name"
             label="First Name"
-            class="input--xd"
-            :class="{ 'input--invalid': !userData.first_name && wasSubmitted }"
+            class="user__input"
+            :class="{
+              'user__input--invalid': !userData.first_name && wasSubmitted
+            }"
           />
           <InputComponent
             id="last"
             v-model="userData.last_name"
             label="Last Name"
-            class="input--xd"
-            :class="{ 'input--invalid': !userData.last_name && wasSubmitted }"
+            class="user__input"
+            :class="{
+              'user__input--invalid': !userData.last_name && wasSubmitted
+            }"
           />
         </div>
-        <div class="buttons--container">
-          <SubmitComponent class="submit" />
+        <div class="user__buttons-container">
+          <SubmitComponent class="user__submit" />
           <DeleteButton
             v-if="isActiveUser"
             @click="handleDelete"
           />
         </div>
       </main>
-      <aside class="aside">
+      <aside class="user__aside">
         <img
           :src="
             userData.avatar ||
             'https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png'
           "
-          alt="peepoStare"
-          class="img"
+          alt="avatar"
+          class="user__avatar-img"
           width="140"
           height="140"
         />
@@ -104,7 +108,7 @@
           id="avatar"
           v-model="userData.avatar"
           placeholder="📷Change Photo"
-          class="avatar"
+          class="user__avatar-input"
           :class="{ 'input--invalid': !userData.avatar && wasSubmitted }"
         />
       </aside>
@@ -113,144 +117,286 @@
 </template>
 
 <style scoped lang="scss">
-  .header {
-    margin: 32px 0;
-    font-size: 32px;
-
-    @media only screen and (width <= $breakpoint) {
-      text-align: center;
-    }
-
-    @media only screen and (width <= $breakpoint2) {
-      margin-bottom: 0;
-    }
-  }
-
-  .input {
-    &__wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 32px;
+  .user {
+    &__header {
+      margin: 32px 0;
+      font-size: 32px;
 
       @media only screen and (width <= $breakpoint) {
+        text-align: center;
+      }
+
+      @media only screen and (width <= $breakpoint2) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__input {
+      width: 100%;
+
+      &-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+
+        @media only screen and (width <= $breakpoint) {
+          flex-direction: column;
+          gap: 24px;
+        }
+      }
+
+      &--invalid {
+        :deep(.input) {
+          border: 1px solid red !important;
+        }
+      }
+    }
+
+    &__submit {
+      border: none;
+      background-color: $color-green;
+      color: $color-white;
+      border-radius: 4px;
+      padding: 16px 24px;
+    }
+
+    &__main {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      background-color: $color-white;
+      padding: 24px;
+      height: 400px;
+      justify-content: space-between;
+      border-radius: 8px;
+      box-shadow: 0 0 20px -15px $color-font;
+
+      @media only screen and (width <= $breakpoint) {
+        height: max-content;
+      }
+
+      @media only screen and (width <= $breakpoint2) {
+        width: 100%;
+      }
+    }
+
+    &__form {
+      width: 100%;
+      display: flex;
+      gap: 64px;
+
+      @media only screen and (width <= $breakpoint) {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: center;
+      }
+    }
+
+    &__aside {
+      width: 30%;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: end;
+      background-color: $color-white;
+      padding: 24px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px -15px $color-font;
+
+      @media only screen and (width <= $breakpoint) {
+        height: 240px;
+        width: 70%;
+      }
+
+      @media only screen and (width <= $breakpoint2) {
+        height: 240px;
+        width: 100%;
+      }
+    }
+
+    &__avatar {
+      &-img {
+        overflow: hidden;
+        border-radius: 50%;
+        background-color: $color-grey;
+        border: 3px solid $color-light-grey;
+        outline: 1px solid $color-grey;
+        margin-bottom: 100px;
+
+        @media only screen and (width <= $breakpoint) {
+          width: 120px;
+          height: 120px;
+          margin-bottom: 20px;
+        }
+      }
+
+      &-input {
+        :deep(.input) {
+          border: 1px solid $color-font;
+          text-align: center;
+        }
+
+        width: 100%;
+      }
+    }
+
+    &__buttons-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media only screen and (width <= $breakpoint) {
+        margin-top: 64px;
+      }
+
+      @media only screen and (width <= $breakpoint2) {
         flex-direction: column;
         gap: 24px;
       }
     }
-
-    &--xd {
-      width: 100%;
-    }
-
-    &--invalid {
-      :deep(.input) {
-        border: 1px solid red !important;
-      }
-    }
   }
 
-  .submit {
-    border: none;
-    background-color: $color-green;
-    color: $color-white;
-    border-radius: 4px;
-    padding: 16px 24px;
-  }
+  // .header {
+  //   margin: 32px 0;
+  //   font-size: 32px;
 
-  .main {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    background-color: $color-white;
-    padding: 24px;
-    height: 400px;
-    justify-content: space-between;
-    border-radius: 8px;
-    box-shadow: 0 0 20px -15px $color-font;
+  //   @media only screen and (width <= $breakpoint) {
+  //     text-align: center;
+  //   }
 
-    @media only screen and (width <= $breakpoint) {
-      height: max-content;
-    }
+  //   @media only screen and (width <= $breakpoint2) {
+  //     margin-bottom: 0;
+  //   }
+  // }
 
-    @media only screen and (width <= $breakpoint2) {
-      width: 100%;
-    }
-  }
+  // .input {
+  //   &__wrapper {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     gap: 32px;
 
-  .form {
-    width: 100%;
-    display: flex;
-    gap: 64px;
+  //     @media only screen and (width <= $breakpoint) {
+  //       flex-direction: column;
+  //       gap: 24px;
+  //     }
+  //   }
 
-    @media only screen and (width <= $breakpoint) {
-      flex-direction: column-reverse;
-      justify-content: flex-end;
-      align-items: center;
-    }
-  }
+  //   &--xd {
+  //     width: 100%;
+  //   }
 
-  .aside {
-    width: 30%;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: end;
-    background-color: $color-white;
-    padding: 24px 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px -15px $color-font;
+  //   &--invalid {
+  //     :deep(.input) {
+  //       border: 1px solid red !important;
+  //     }
+  //   }
+  // }
 
-    @media only screen and (width <= $breakpoint) {
-      height: 240px;
-      width: 70%;
-    }
+  // .submit {
+  //   border: none;
+  //   background-color: $color-green;
+  //   color: $color-white;
+  //   border-radius: 4px;
+  //   padding: 16px 24px;
+  // }
 
-    @media only screen and (width <= $breakpoint2) {
-      height: 240px;
-      width: 100%;
-    }
-  }
+  // .main {
+  //   width: 70%;
+  //   display: flex;
+  //   flex-direction: column;
+  //   background-color: $color-white;
+  //   padding: 24px;
+  //   height: 400px;
+  //   justify-content: space-between;
+  //   border-radius: 8px;
+  //   box-shadow: 0 0 20px -15px $color-font;
 
-  .img {
-    overflow: hidden;
-    border-radius: 50%;
-    background-color: $color-grey;
-    border: 3px solid $color-light-grey;
-    outline: 1px solid $color-grey;
-    margin-bottom: 100px;
+  //   @media only screen and (width <= $breakpoint) {
+  //     height: max-content;
+  //   }
 
-    @media only screen and (width <= $breakpoint) {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 20px;
-    }
-  }
+  //   @media only screen and (width <= $breakpoint2) {
+  //     width: 100%;
+  //   }
+  // }
 
-  .avatar {
-    :deep(.input) {
-      border: 1px solid $color-font;
-      text-align: center;
-    }
+  // .form {
+  //   width: 100%;
+  //   display: flex;
+  //   gap: 64px;
 
-    width: 100%;
-  }
+  //   @media only screen and (width <= $breakpoint) {
+  //     flex-direction: column-reverse;
+  //     justify-content: flex-end;
+  //     align-items: center;
+  //   }
+  // }
 
-  /* stylelint-disable-next-line selector-class-pattern */
-  .buttons--container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  // .aside {
+  //   width: 30%;
+  //   height: 400px;
+  //   display: flex;
+  //   align-items: center;
+  //   flex-direction: column;
+  //   justify-content: end;
+  //   background-color: $color-white;
+  //   padding: 24px 20px;
+  //   border-radius: 8px;
+  //   box-shadow: 0 0 20px -15px $color-font;
 
-    @media only screen and (width <= $breakpoint) {
-      margin-top: 64px;
-    }
+  //   @media only screen and (width <= $breakpoint) {
+  //     height: 240px;
+  //     width: 70%;
+  //   }
 
-    @media only screen and (width <= $breakpoint2) {
-      flex-direction: column;
-      gap: 24px;
-    }
-  }
+  //   @media only screen and (width <= $breakpoint2) {
+  //     height: 240px;
+  //     width: 100%;
+  //   }
+  // }
+
+  // .img {
+  //   overflow: hidden;
+  //   border-radius: 50%;
+  //   background-color: $color-grey;
+  //   border: 3px solid $color-light-grey;
+  //   outline: 1px solid $color-grey;
+  //   margin-bottom: 100px;
+
+  //   @media only screen and (width <= $breakpoint) {
+  //     width: 120px;
+  //     height: 120px;
+  //     margin-bottom: 20px;
+  //   }
+  // }
+
+  // .avatar {
+  //   :deep(.input) {
+  //     border: 1px solid $color-font;
+  //     text-align: center;
+  //   }
+
+  //   width: 100%;
+  // }
+
+  // /* stylelint-disable-next-line selector-class-pattern */
+  // .buttons--container {
+  //   width: 100%;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+
+  //   @media only screen and (width <= $breakpoint) {
+  //     margin-top: 64px;
+  //   }
+
+  //   @media only screen and (width <= $breakpoint2) {
+  //     flex-direction: column;
+  //     gap: 24px;
+  //   }
+  // }
 </style>

@@ -2,7 +2,7 @@
   import DefaultLayout from '@/layout/DefaultLayout.vue'
   import TableComponent from '@/components/Table/TableComponent.vue'
   import SearchComponent from '@/components/Search/SearchComponent.vue'
-  import AddUser from '@/components/AddUserButton/AddUserButton.vue'
+  import AddUser from '@/components/AddUser/AddUser.vue'
 
   import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
   import type { User } from '@/common/types/request.types'
@@ -28,11 +28,11 @@
 
 <template>
   <DefaultLayout>
-    <header class="header">User list</header>
-    <main class="main">
-      <div class="actions">
-        <SearchComponent class="search" />
-        <AddUser class="add" />
+    <header class="home__header">User list</header>
+    <main class="home__main">
+      <div class="home__actions">
+        <SearchComponent class="home__search" />
+        <AddUser class="home__add-user" />
       </div>
       <TableComponent :users="users" />
     </main>
@@ -45,27 +45,30 @@
 </template>
 
 <style scoped lang="scss">
-  .header {
-    margin: 32px 0;
-    font-size: 32px;
-  }
+  .home {
+    &__header {
+      margin: 32px 0;
+      font-size: 32px;
+    }
 
-  .main {
-    padding: 24px 16px;
-    display: flex;
-    flex-direction: column;
-    background-color: $color-white;
-    box-shadow: 0 0 20px -15px $color-font;
-  }
-
-  .actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @media only screen and (width <= $breakpoint2) {
+    &__main {
+      padding: 24px 16px;
+      display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      background-color: $color-white;
+      box-shadow: 0 0 20px -15px $color-font;
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @media only screen and (width <= $breakpoint2) {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+      }
     }
   }
 </style>

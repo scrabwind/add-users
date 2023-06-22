@@ -12,11 +12,11 @@
 </script>
 
 <template>
-  <div class="wrapper">
+  <div class="input__wrapper">
     <label
       v-if="label"
       :for="id"
-      class="label"
+      class="input__label"
     >
       {{ label }}
     </label>
@@ -34,20 +34,20 @@
 </template>
 
 <style scoped lang="scss">
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .label {
-    font-weight: bold;
-  }
-
   .input {
     margin-top: 12px;
     border: 1px solid $color-light-grey;
     background-color: $color-white;
     padding: 8px 16px;
     height: 32px;
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__label {
+      font-weight: bold;
+    }
   }
 </style>
